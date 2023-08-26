@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Zoomies - Event details</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <style>
+    #page-title {
+      margin-top: 0px !important;
+    }
+
+    .join-btn {
+      background-image: none;
+      color: white;
+    }
+
+    #image-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+      margin-left: 20px;
+      min-width: 300px;
+    }
+
+    .multi-account-image {
+      height: 600px;
+      border: none;
+    }
+
+    #form-container {
+      display: none;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .form input {
+      margin-right: 10px;
+      height: 40px;
+    }
+
+    .form button {
+      height: 40px;
+    }
+
+    .click-here-label {
+      color: #0071de !important;
+      cursor: pointer;
+    }
+
+    a:visited {
+      color: white !important;
+    }
+
+    #view-event-details-link-hidden {
+      display: none;
+    }
+
+    #show-event-details-btn-hidden {
+      display: none;
+    }
+    #note {
+      display: none;
+    }
+    .paper{
+      display: flex;
+      flex-wrap: wrap;
+    }
+    #left{
+      flex-basis: 60%;
+      flex-grow: 0;
+    }
+    #right{
+      flex-basis: 40%;
+      flex-grow: 0;
+    }
+    .account-chooser{
+      color: #0071de !important;
+      background-image: none;
+    }
+    .account-chooser:visited{
+      color: #0071de !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="paper">
+    <div id="left">
+    <h2 id="page-title">Quick Check</h2>
+    <p id="disclaimer">You are trying to view your meeting details. You must use the <span class="badge secondary"><a class="join-btn"
+          href="#">Join</a></span> button on the chrome plugin to dial in to the meeting.</p>
+    <p id="page-details"></p>
+    <div id="form-container">
+      <div class="form">
+        <input placeholder="1" id="multi-calendar-email-order" type="number" min="1" max="10" />
+        <button id="show-event-details-btn" class="paper-btn btn-small">Show Meeting Details</button>
+      </div>
+    </div>
+    <p id="note">Note - This is a one-time prompt. If you change the order of your accounts in the future, click on "Show multi-account settings prompt" in Settings section of the chrome plugin.</p>
+    </div>
+    <div id="right">
+      <div id="image-container"></div>
+    </div>
+    <p id="view-event-details-link-hidden"></p>
+    <button id="show-event-details-btn-hidden"></button>
+  </div>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const prompt = urlParams.get('prompt');
+    const provider = urlParams.get('provider');
+    const order = urlParams.get('order') ? parseInt(urlParams.get('order')) - 1 : 0;
+
+    let link = urlParams.get('link');
+    if(provider === "microsoft"){
+      let linkArr = link.split("/calendar/0/deeplink/read/");
+      link = linkArr[0] + "/calendar/0/deeplink/read/" + encodeURIComponent(linkArr[1]);
+    }
+    document.getElementById("view-event-details-link-hidden").innerHTML = link;
+    
+    if(provider === "calendly" && link){
+      document.getElementById("page-title").innerText = "Redirecting ...";
+      location.href = link;
+    }
+    else if (!prompt && link && !order) {
+      document.getElementById("page-title").innerText = "Redirecting ...";
+      location.href = link;
+    } else if (!prompt && link && order) {
+      document.getElementById("page-title").innerText = "Redirecting ...";
+      location.href = getLinkWithOrder(order);
+    } else {
+      let providerName, imageReference;
+      switch (provider) {
+        case "google":
+          providerName = "Google";
+          imageReference = "./images/google-multiple-accounts.png";
+          loadContent(providerName, imageReference);
+          break;
+        case "microsoft":
+          providerName = "Microsoft";
+          imageReference = "./images/google-multiple-accounts.png";
+          loadContent(providerName, imageReference);
+          break;
+        default:
+          location.href = "/404";
+      }
+    }
+
+    document.getElementById("show-event-details-btn").onclick = function () {
+      let order = document.getElementById("multi-calendar-email-order").value;
+      if (!order || isNaN(order)) {
+        alert("Account number cannot be empty or non-numeric.");
+        return;
+      }
+      order = order - 1;
+
+      document.getElementById("view-event-details-link-hidden").innerText = getLinkWithOrder(order);
+      document.getElementById("show-event-details-btn-hidden").click();
+    }
+
+    function loadContent(providerName, imageReference) {
+      const email = urlParams.get('email');
+      let accountChooserHelper = "";
+      if(provider === "google"){
+        accountChooserHelper = " (You may use this <a href='https://accounts.google.com/AccountChooser' target='_blank' class='account-chooser'>link</a> to view the order of your logged-in accounts.)"
+      }
+      document.getElementById("page-details").innerHTML = `If you are logged into multiple ${providerName} accounts, you need to enter the account number (eg. 1 or 2 ...) of ${email} as suggested by the image. If ${email} is your default (1) account, <span id="is-default-account" class="click-here-label">click here</span> to continue. Else, enter account number to continue. ${accountChooserHelper}`
+      document.getElementById("form-container").style.display = "block";
+      document.getElementById("note").style.display = "block";
+      document.getElementById("image-container").innerHTML = `<img class="multi-account-image" src="${imageReference}" alt="Extension Home">`;
+      document.getElementById("multi-calendar-email-order").focus();
+    }
+
+    function getLinkWithOrder(order) {
+      let linkWithOrder = link;
+      switch (provider) {
+        case "google":
+          linkWithOrder = link.replace("calendar/u/0", `calendar/u/${parseInt(order)}`);
+          break;
+        case "microsoft":
+          linkWithOrder = link.replace("calendar/0", `calendar/${parseInt(order)}`);
+          break;
+        default:
+          break;
+      }
+
+      return linkWithOrder;
+    }
+  </script>
+</body>

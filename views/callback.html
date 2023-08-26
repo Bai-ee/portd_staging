@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="shortcut icon" href="/images/favicon.svg" />
+    <link rel="stylesheet" href="/css/output.css" />
+    <title>Portd</title>
+  </head>
+  <body class="text-gray-800 antialiase">
+    <main>
+      <div
+        class="relative pt-8 pb-16 flex content-center items-center justify-center bg-black"
+        style="min-height: 30vh"
+      >
+        <div class="container relative mx-auto">
+          <div class="dark:hidden bg-[#5558DE]/80 absolute rounded-tl-full rounded-tr-full w-72 h-80 blur-3xl overflow-hidden -z-1 -left-[100px] top-20"></div>
+          <div class="flex flex-col flex-wrap justify-center text-center">
+            <img src="/images/geometriclogonew.svg" alt="" class="ml-10 max-h-[8rem]" />
+            <h1 class="text-white text-5xl mt-4">
+              <span class="font-semibold">Portd</span> is installed!
+            </h1>
+            <h1 class="text-thin text-[#7779DE]/90 mt-2">
+              Welcome to your remote meeting manager.
+            </h1>
+          </div>
+        </div>
+      </div>
+      <section class="pb-20 bg-black">
+        <div class="container mx-auto px-4">
+          <div class="grid justify-items-center grid-cols-3">
+            <div class="pt-6 px-6 flex justify-center flex-wrap text-left">
+              <img src="/images/loginpagenewnew.svg" alt="" class="h-80" />
+              <div class="ml-10">
+                <h1 class="text-[#7779DE]/90 text-2xl font-semibold mt-6">
+                  Supports Google, Microsoft and Calendly
+                </h1>
+                <h1 class="text-gray-300 mt-3">
+                  Supports Google, Microsoft and Calendly calendars. Quick links
+                  to create new meetings and view details of existing meetings.
+                </h1>
+              </div>
+            </div>
+            <div class="pt-6 px-6 flex justify-center flex-wrap text-left">
+              <img src="/images/meetingspagenew.svg" alt="" class="h-80" />
+              <div class="ml-10">
+                <h1 class="text-[#7779DE]/90 text-2xl font-semibold mt-6">
+                  A single click to all Remote Meetings
+                </h1>
+                <h1 class="text-gray-300 mt-3">
+                  One place, one click to all of your remote meetings. 1-minute
+                  countdown reminder. Never miss another remote event!
+                </h1>
+              </div>
+            </div>
+            <div class="pt-6 px-6 flex justify-center flex-wrap text-left">
+              <img src="/images/eventpagenew.svg" alt="" class="h-80" />
+              <div class="ml-10">
+                <h1 class="text-[#7779DE]/90 text-2xl font-semibold mt-6">
+                  Cross Platform Ready
+                </h1>
+                <h1 class="text-gray-300 mt-3">
+                  All popular video platforms are supported, including Zoom, MS
+                  Teams, Google Meet, Hangouts, WebEx, Skype, GoToMeeting, AWS
+                  Chime, and Jio Meet.
+                </h1>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="dark:hidden bg-[#5558DE]/80 absolute rounded-full w-72 h-72 blur-3xl overflow-hidden -z-1 -right-10 -bottom-[400px]"></div> -->
+        </div>
+      </section>
+    </main>
+    <footer class="bg-white pt-0 pb-0">
+      <div class="container mx-auto px-0">
+        <div
+          class="flex flex-wrap items-center justify-center"
+        >
+        <img src="/images/mobilebanner.svg" class="h-21 w-full">
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script>
+      const id = getParameterByName("id");
+      let accountInfo = {};
+      
+      accountInfo[id] = {
+        id,
+        displayName: getParameterByName("displayName"),
+        email: getParameterByName("email"),
+        provider: getParameterByName("provider"),
+        auth: {
+          accessToken: getParameterByName("accessToken"),
+          refreshToken: getParameterByName("refreshToken"),
+          expires_in: parseInt(getParameterByName("expires_in")),
+        }
+      };
+      localStorage.setItem("zoomiesAccountInfo", JSON.stringify(accountInfo));
+
+      function getParameterByName(name, url = window.location.href) {
+          name = name.replace(/[\[\]]/g, '\\$&');
+          var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+              results = regex.exec(url);
+          if (!results) return null;
+          if (!results[2]) return '';
+          return decodeURIComponent(results[2].replace(/\+/g, ' '));
+      }
+    </script>
+</html>

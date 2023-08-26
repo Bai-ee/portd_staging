@@ -1,0 +1,332 @@
+.container {
+    width: 100% !important;
+    margin: 0px;
+    max-width: 100%;
+    height: 100%;
+    position: initial;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    margin: 0px !important;
+}
+
+a:visited {
+    color: #0071de !important;
+}
+
+hr {
+    margin-top: 30px;
+    margin-bottom: 0px;
+}
+
+.logo {
+    height: 50px;
+    width: 50px;
+}
+
+.menu-button {
+    height: 50px;
+    margin-top: 5px;
+}
+
+.subtitle-change {
+    text-decoration: none;
+    background: none;
+    color: #0071de !important;
+}
+
+nav {
+    padding: 10px;
+    padding-bottom: 20px;
+    background-color: whitesmoke;
+}
+
+.heading-content {
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.strikethrough {
+    text-decoration: line-through;
+}
+
+#webstore-link {
+    color: white !important;
+    text-decoration: none;
+    background: none;
+}
+
+.big-vertical-margin {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.medium-vertical-margin {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.extension-cards {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.extension-card {
+    padding: 10px;
+}
+
+.extension-images {
+    max-height: 500px;
+}
+
+.card-text{
+    margin-top: 10px !important;
+}
+
+#chrome-extension-button {
+    text-align: center;
+    margin-top: 20px !important;
+    cursor: pointer;
+    margin-bottom: 10px !important;
+}
+
+.website-badges {
+    display: flex;
+    flex-direction: row;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+#producthunt-button {
+    background-image: none;
+    margin-top: 10px;
+}
+
+#producthunt-button img {
+    border: none;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.platforms-container {
+    display: flex;
+    justify-content: center;
+}
+
+.supported-platforms {
+    width: 80%;
+    color: black;
+    text-align: center;
+}
+
+#remote-tools-button {
+    background-image: none;
+    margin-top: 10px;
+}
+
+#remote-tools-button img {
+    border: none;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.media {
+    display: flex;
+    flex-direction: column;
+}
+
+#venture-mirror-button {
+    background-image: none;
+    margin-top: 10px;
+}
+
+#venture-mirror-button img {
+    border: none;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.video-container {
+    overflow: hidden;
+    position: relative;
+    width: 90%;
+    max-width: 700px;
+    align-items: center;
+    flex-direction: column;
+}
+
+.video-container::after {
+    padding-top: 56.25%;
+    display: block;
+    content: '';
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.video-container-text {
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+.update-dates {
+    margin: 35px;
+    margin-bottom: 0px;
+    color: #0071de;
+    text-decoration: underline;
+}
+
+.update-text {
+    margin-top: 10px !important;
+}
+
+.footer {
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.privacy-policy {
+    margin-right: 10px;
+}
+
+
+/** Timeline **/
+
+.timeline {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px;
+}
+
+ul.timeline li::before {
+    display: none;
+}
+
+.li {
+    transition: all 200ms ease-in;
+}
+
+.timestamp {
+    margin-bottom: 20px;
+    padding: 0px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 100;
+}
+
+.status {
+    padding: 0px 40px;
+    display: flex;
+    justify-content: center;
+    border-top: 2px solid #D6DCE0;
+    position: relative;
+    transition: all 200ms ease-in;
+}
+
+.status h4 {
+    font-weight: 600;
+}
+
+.status:before {
+    content: "";
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    border-radius: 25px;
+    border: 1px solid #ddd;
+    position: absolute;
+    top: -15px;
+    left: 42%;
+    transition: all 200ms ease-in;
+}
+
+.li.complete .status {
+    border-top: 2px solid #66DC71;
+}
+
+.li.complete .status:before {
+    background-color: #66DC71;
+    border: none;
+    transition: all 200ms ease-in;
+}
+
+.li.complete .status h4 {
+    color: #66DC71;
+}
+
+@media (min-device-width: 320px) and (max-device-width: 900px) {
+    .timeline {
+        list-style-type: none;
+        display: none;
+    }
+    .li {
+        transition: all 200ms ease-in;
+        display: flex;
+        width: inherit;
+    }
+    .timestamp {
+        width: 100px;
+    }
+    .status:before {
+        left: -8%;
+        top: 30%;
+        transition: all 200ms ease-in;
+    }
+}
+
+
+/** Timeline ends **/
+
+#PapercupsChatWidget h2 {
+    font-size: 24px;
+    margin-bottom: 10px !important;
+}
+
+.Papercups-chatWindowContainer {
+    height: 70% !important;
+}
+
+
+/** For showing notifications on the top 
+.container {
+    padding-top: 0px !important;
+}
+
+.top-notification {
+    text-align: center;
+    margin-bottom: 0px !important;
+}
+
+.notification-container {
+    margin-bottom: 0px;
+}
+**/
