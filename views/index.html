@@ -7,112 +7,103 @@
     <link rel="shortcut icon" href="./images/favicon.svg" />
     <link rel="stylesheet" href="./css/output.css" />
     <title>Portd</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
   </head>
   <body class="text-gray-800 antialiase">
-    <nav
-      class="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 bg-black"
-    >
-      <div
-        class="container px-4 mx-auto flex flex-wrap items-center justify-between"
-      >
-        <img src="./images/portedlogonew.svg" alt="" class="h-10 lg:h-16" />
-        <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
-          <li class="flex items-center">
-            <button
-              onclick="download()"
-              href="https://chrome.google.com/webstore/detail/zoomies/idcinedpcpdoaompmjnmhcpeiohijcjd"
-              role="button"
-              class="bg-grey-light hover:bg-grey text-white font-bold py-2 px-4 rounded-2xl border-2 border-white inline-flex items-center"
-            >
-              <svg
-                width="25"
-                height="24"
-                viewBox="0 0 25 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M21 11H19.5V7C19.5 5.9 18.6 5 17.5 5H13.5V3.5C13.5 2.83696 13.2366 2.20107 12.7678 1.73223C12.2989 1.26339 11.663 1 11 1C10.337 1 9.70107 1.26339 9.23223 1.73223C8.76339 2.20107 8.5 2.83696 8.5 3.5V5H4.5C3.4 5 2.51 5.9 2.51 7V10.8H4C5.49 10.8 6.7 12.01 6.7 13.5C6.7 14.99 5.49 16.2 4 16.2H2.5V20C2.5 21.1 3.4 22 4.5 22H8.3V20.5C8.3 19.01 9.51 17.8 11 17.8C12.49 17.8 13.7 19.01 13.7 20.5V22H17.5C18.6 22 19.5 21.1 19.5 20V16H21C21.663 16 22.2989 15.7366 22.7678 15.2678C23.2366 14.7989 23.5 14.163 23.5 13.5C23.5 12.837 23.2366 12.2011 22.7678 11.7322C22.2989 11.2634 21.663 11 21 11Z"
-                  fill="white"
-                />
-              </svg>
-              <span class="ml-2"> Download </span>
-            </button>
-          </li>
-        </ul>
-      </div>
-    </nav>
+
+    <div id="stageblock" style="width:100vw; height:100%; background-color:black; position:absolute; top:0px; z-index:9999999999;"></div>
+    <nav class="top-0 z-50 w-full flex flex-wrap items-center justify-between px-2 py-3" style="
+background: rgba(24, 25, 45, 0.902);
+    backdrop-filter: blur(2px);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    max-height: 73px;
+    ">
+
+    
+    
+    <div class="container px-4 mx-auto flex flex-wrap items-center justify-between w-10">
+      <img src="./images/portedlogonew.svg" alt="" style="max-width: 53px;">
+      <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
+        <li class="flex items-center">
+          <button onclick="download()" href="https://chrome.google.com/webstore/detail/zoomies/idcinedpcpdoaompmjnmhcpeiohijcjd" role="button" class="bg-grey-light hover:bg-grey text-white font-bold py-2 px-4 rounded-2xl border-2 border-white inline-flex items-center">
+            <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M21 11H19.5V7C19.5 5.9 18.6 5 17.5 5H13.5V3.5C13.5 2.83696 13.2366 2.20107 12.7678 1.73223C12.2989 1.26339 11.663 1 11 1C10.337 1 9.70107 1.26339 9.23223 1.73223C8.76339 2.20107 8.5 2.83696 8.5 3.5V5H4.5C3.4 5 2.51 5.9 2.51 7V10.8H4C5.49 10.8 6.7 12.01 6.7 13.5C6.7 14.99 5.49 16.2 4 16.2H2.5V20C2.5 21.1 3.4 22 4.5 22H8.3V20.5C8.3 19.01 9.51 17.8 11 17.8C12.49 17.8 13.7 19.01 13.7 20.5V22H17.5C18.6 22 19.5 21.1 19.5 20V16H21C21.663 16 22.2989 15.7366 22.7678 15.2678C23.2366 14.7989 23.5 14.163 23.5 13.5C23.5 12.837 23.2366 12.2011 22.7678 11.7322C22.2989 11.2634 21.663 11 21 11Z" fill="white"></path>
+            </svg>
+            <span class="ml-2"> Download </span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
     <main>
-      <div
-        class="relative pt-16 lg:pb-32 pb-20 flex content-center items-center justify-center bg-black max-w-full"
-        style="min-height: 70vh"
-      >
-        <div class="container relative mx-auto">
-          <div class="items-center flex flex-wrap">
-            <div
-              class="w-full lg:w-6/12 px-4 ml-auto mr-auto lg:text-left text-center"
-            >
-              <div
-                class="dark:hidden bg-[#5558DE] absolute rounded-tl-full rounded-tr-full w-64 h-64 blur-3xl overflow-hidden -z-1 -left-[100px] top-20"
-              ></div>
-              <div
-                class="dark:hidden hidden lg:block bg-[#5558DE] absolute rounded-full w-64 h-64 blur-3xl overflow-clip -z-1 -right-0 -top-10"
-              ></div>
-              <div class="lg:pl-24">
-                <h1 class="text-[#7779DE]/90 text-5xl font-[510] mt-4">
-                  STAGING
-                </h1>
-                <h1 class="text-[#5558DE]/90 font-[510] text-5xl mt-2">
-                  One click.
-                </h1>
-                <div class="mt-2">
-                  <span class="text-white font-thin text-6xl mt-2">Get</span
-                  ><span class="text-white font-semibold text-6xl">
-                    Portd.</span
-                  >
-                </div>
-                <p class="mt-4 text-lg text-gray-300">
-                  The smart
-                  <span class="font-semibold text-[#5558DE]/90">Chrome</span>
-                  and
-                  <span class="font-semibold text-[#5558DE]/90">Firefox</span>
-                  extension that allows you to join all your virtual meetings
-                  from one-place with one-click.
-                </p>
-                <div class="mt-4 mb-10 lg:mb-0">
-                  <button
-                    onclick="download()"
-                    class="bg-[#5558DE] text-white text-xs font-bold uppercase px-24 py-3 rounded-xl shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mt-2 lg:mb-0 ml-0 mb-3"
-                  >
-                    Free Download
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div
-              class="w-full lg:w-6/12 px-4 mr-auto text-center lg:float-right justify-center lg:pl-32 lg:pt-0 pt-4 lg:ml-0 ml-10"
-            >
-              <div class="w-full md:w-6/12 ml-auto mr-auto px-4 lg:mt-20">
-                <img
-                  alt="..."
-                  class="h-96 rounded-lg shadow-lg"
-                  src="./images/screen1new.svg"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- <div class="hidden md:block bg-[#5558DE]/70 absolute rounded-full w-80 h-80 blur-3xl overflow-hidden z-0 -left-24 -top-6"></div> -->
+<div
+  class="relative flex content-center items-center justify-center max-w-full h-full flex flex-col"
+  style="
+    min-height: 70vh;
+    background-color: rgba(230, 229, 229, 0.901961);
+    background-image: url('./images/bg.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;"
+>
+
+<div id="prehead"class="font-inter font-normal font-semibold text-[82px] leading-[99px] text-center tracking-tighter text-white">
+  Click to Meetings, Notes & Reminders,
+</div>
+<div id="headline" style="margin-top:20px; font-size: 3.875rem; z-index: 10;
+line-height: 3.25rem;" class="font-inter font-semibold leading-[39px] text-center text-white w-full">
+  All In One Place!
+</div>
+<div id="subhead" style=" z-index: 10;margin-top:20px; margin-bottom:20px;" class="font-inter font-normal  text-[82px] leading-[99px] text-center tracking-tighter text-white">
+  Be prepared, with PORTD.
+</div>
+<svg id="buttons" style=" z-index: 10;"width="311" height="53" viewBox="0 0 411 53" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0.5" y="0.5" width="117" height="52" rx="5.5" fill="url(#paint0_linear_801_21187)"/>
+  <path d="M34.1186 31.5V21.3182H37.7479C38.5367 21.3182 39.1913 21.4541 39.7116 21.7259C40.2353 21.9976 40.6264 22.3738 40.8849 22.8544C41.1435 23.3317 41.2727 23.8835 41.2727 24.5099C41.2727 25.133 41.1418 25.6816 40.88 26.1555C40.6214 26.6262 40.2304 26.9924 39.7067 27.2543C39.1863 27.5161 38.5317 27.647 37.7429 27.647H34.9936V26.3246H37.6037C38.1009 26.3246 38.5052 26.2533 38.8168 26.1108C39.1316 25.9683 39.362 25.7611 39.5078 25.4893C39.6536 25.2176 39.7266 24.8911 39.7266 24.5099C39.7266 24.1255 39.652 23.7924 39.5028 23.5107C39.357 23.2289 39.1267 23.0135 38.8118 22.8643C38.5002 22.7119 38.0909 22.6357 37.5838 22.6357H35.6548V31.5H34.1186ZM39.1449 26.9062L41.6605 31.5H39.9105L37.4446 26.9062H39.1449ZM46.2182 31.6541C45.4658 31.6541 44.8179 31.4934 44.2743 31.1719C43.7341 30.8471 43.3165 30.3913 43.0215 29.8047C42.7298 29.2147 42.584 28.5237 42.584 27.7315C42.584 26.9493 42.7298 26.2599 43.0215 25.6634C43.3165 25.0668 43.7275 24.6011 44.2544 24.2663C44.7847 23.9316 45.4045 23.7642 46.1138 23.7642C46.5447 23.7642 46.9623 23.8355 47.3667 23.978C47.771 24.1205 48.1339 24.3442 48.4554 24.6491C48.7769 24.9541 49.0305 25.3501 49.2161 25.8374C49.4017 26.3213 49.4945 26.9096 49.4945 27.6023V28.1293H43.4242V27.0156H48.0378C48.0378 26.6245 47.9583 26.2782 47.7992 25.9766C47.6401 25.6716 47.4164 25.4313 47.128 25.2557C46.843 25.08 46.5082 24.9922 46.1238 24.9922C45.7061 24.9922 45.3416 25.0949 45.03 25.3004C44.7218 25.5026 44.4831 25.7678 44.3141 26.0959C44.1484 26.4207 44.0655 26.7737 44.0655 27.1548V28.0249C44.0655 28.5353 44.155 28.9695 44.334 29.3274C44.5163 29.6854 44.7698 29.9588 45.0946 30.1477C45.4194 30.3333 45.7989 30.4261 46.2331 30.4261C46.5149 30.4261 46.7717 30.3864 47.0037 30.3068C47.2357 30.224 47.4363 30.1013 47.6053 29.9389C47.7743 29.7765 47.9036 29.576 47.9931 29.3374L49.4 29.5909C49.2873 30.0052 49.0852 30.3681 48.7935 30.6797C48.5051 30.9879 48.1422 31.2282 47.7047 31.4006C47.2705 31.5696 46.775 31.6541 46.2182 31.6541ZM54.7781 23.8636V25.0568H50.4627V23.8636H54.7781ZM51.646 31.5V22.9787C51.646 22.5014 51.7504 22.1053 51.9592 21.7905C52.168 21.4723 52.4447 21.2353 52.7894 21.0795C53.1341 20.9205 53.5086 20.8409 53.913 20.8409C54.2113 20.8409 54.4665 20.8658 54.6786 20.9155C54.8907 20.9619 55.0482 21.005 55.1509 21.0447L54.8029 22.2479C54.7333 22.228 54.6438 22.2048 54.5344 22.1783C54.4251 22.1484 54.2925 22.1335 54.1367 22.1335C53.7754 22.1335 53.5169 22.223 53.3612 22.402C53.2087 22.581 53.1325 22.8395 53.1325 23.1776V31.5H51.646ZM56.3118 31.5V23.8636H57.7486V25.0767H57.8281C57.9673 24.6657 58.2126 24.3426 58.5639 24.1072C58.9186 23.8686 59.3196 23.7493 59.767 23.7493C59.8598 23.7493 59.9692 23.7526 60.0952 23.7592C60.2244 23.7659 60.3255 23.7741 60.3984 23.7841V25.206C60.3388 25.1894 60.2327 25.1712 60.0803 25.1513C59.9278 25.1281 59.7753 25.1165 59.6229 25.1165C59.2715 25.1165 58.9583 25.1911 58.6832 25.3402C58.4115 25.486 58.196 25.6899 58.0369 25.9517C57.8778 26.2102 57.7983 26.5052 57.7983 26.8366V31.5H56.3118ZM64.7026 31.6541C63.9502 31.6541 63.3023 31.4934 62.7587 31.1719C62.2185 30.8471 61.8008 30.3913 61.5059 29.8047C61.2142 29.2147 61.0684 28.5237 61.0684 27.7315C61.0684 26.9493 61.2142 26.2599 61.5059 25.6634C61.8008 25.0668 62.2118 24.6011 62.7388 24.2663C63.2691 23.9316 63.8889 23.7642 64.5982 23.7642C65.0291 23.7642 65.4467 23.8355 65.851 23.978C66.2554 24.1205 66.6183 24.3442 66.9398 24.6491C67.2613 24.9541 67.5149 25.3501 67.7005 25.8374C67.8861 26.3213 67.9789 26.9096 67.9789 27.6023V28.1293H61.9086V27.0156H66.5222C66.5222 26.6245 66.4426 26.2782 66.2836 25.9766C66.1245 25.6716 65.9007 25.4313 65.6124 25.2557C65.3274 25.08 64.9926 24.9922 64.6081 24.9922C64.1905 24.9922 63.8259 25.0949 63.5144 25.3004C63.2061 25.5026 62.9675 25.7678 62.7985 26.0959C62.6328 26.4207 62.5499 26.7737 62.5499 27.1548V28.0249C62.5499 28.5353 62.6394 28.9695 62.8184 29.3274C63.0007 29.6854 63.2542 29.9588 63.579 30.1477C63.9038 30.3333 64.2833 30.4261 64.7175 30.4261C64.9992 30.4261 65.2561 30.3864 65.4881 30.3068C65.7201 30.224 65.9206 30.1013 66.0897 29.9389C66.2587 29.7765 66.388 29.576 66.4775 29.3374L67.8844 29.5909C67.7717 30.0052 67.5695 30.3681 67.2779 30.6797C66.9895 30.9879 66.6266 31.2282 66.1891 31.4006C65.7549 31.5696 65.2594 31.6541 64.7026 31.6541ZM75.3505 25.728L74.0032 25.9666C73.9469 25.7943 73.8574 25.6302 73.7347 25.4744C73.6154 25.3187 73.453 25.1911 73.2475 25.0916C73.042 24.9922 72.7852 24.9425 72.4769 24.9425C72.056 24.9425 71.7047 25.0369 71.4229 25.2259C71.1412 25.4115 71.0004 25.6518 71.0004 25.9467C71.0004 26.2019 71.0948 26.4074 71.2837 26.5632C71.4727 26.719 71.7776 26.8466 72.1985 26.946L73.4116 27.2244C74.1142 27.3868 74.6379 27.6371 74.9826 27.9751C75.3273 28.3132 75.4996 28.7524 75.4996 29.2926C75.4996 29.75 75.3671 30.1577 75.1019 30.5156C74.8401 30.8703 74.4738 31.1487 74.0032 31.3509C73.5359 31.553 72.994 31.6541 72.3775 31.6541C71.5224 31.6541 70.8247 31.4718 70.2844 31.1072C69.7442 30.7393 69.4128 30.2173 69.2901 29.5412L70.7269 29.3224C70.8164 29.697 71.0004 29.9804 71.2788 30.1726C71.5572 30.3615 71.9201 30.456 72.3675 30.456C72.8548 30.456 73.2442 30.3549 73.5359 30.1527C73.8275 29.9472 73.9734 29.697 73.9734 29.402C73.9734 29.1634 73.8839 28.9628 73.7049 28.8004C73.5292 28.638 73.2591 28.5154 72.8945 28.4325L71.6019 28.1491C70.8893 27.9867 70.3623 27.7282 70.021 27.3736C69.6829 27.0189 69.5138 26.5698 69.5138 26.0263C69.5138 25.5755 69.6398 25.1811 69.8917 24.843C70.1436 24.505 70.4916 24.2415 70.9357 24.0526C71.3799 23.8603 71.8886 23.7642 72.462 23.7642C73.2873 23.7642 73.9369 23.9432 74.4109 24.3011C74.8848 24.6558 75.198 25.1314 75.3505 25.728ZM78.6206 26.9659V31.5H77.1341V21.3182H78.6007V25.1065H78.6951C78.8741 24.6955 79.1475 24.3691 79.5154 24.1271C79.8833 23.8852 80.3639 23.7642 80.9572 23.7642C81.4809 23.7642 81.9383 23.8719 82.3294 24.0874C82.7238 24.3028 83.0287 24.6243 83.2441 25.0518C83.4629 25.4761 83.5723 26.0064 83.5723 26.6428V31.5H82.0858V26.8217C82.0858 26.2616 81.9416 25.8274 81.6532 25.5192C81.3649 25.2076 80.9638 25.0518 80.4501 25.0518C80.0988 25.0518 79.7839 25.1264 79.5055 25.2756C79.2304 25.4247 79.0133 25.6435 78.8542 25.9318C78.6984 26.2169 78.6206 26.5616 78.6206 26.9659Z" fill="white"/>
+  <rect x="0.5" y="0.5" width="117" height="52" rx="5.5" stroke="#AA9FC8"/>
+  <rect x="130" width="281" height="53" rx="6" fill="#5558DE"/>
+  <path d="M237.172 23.9929C237.119 23.5223 236.9 23.1577 236.516 22.8991C236.131 22.6373 235.647 22.5064 235.064 22.5064C234.646 22.5064 234.285 22.5727 233.98 22.7053C233.675 22.8345 233.438 23.0135 233.269 23.2422C233.103 23.4676 233.021 23.7244 233.021 24.0128C233.021 24.2547 233.077 24.4635 233.19 24.6392C233.306 24.8149 233.456 24.9624 233.642 25.0817C233.831 25.1977 234.033 25.2955 234.249 25.375C234.464 25.4512 234.671 25.5142 234.87 25.5639L235.864 25.8224C236.189 25.902 236.522 26.0097 236.864 26.1456C237.205 26.2815 237.522 26.4605 237.813 26.6825C238.105 26.9046 238.34 27.1797 238.519 27.5078C238.701 27.8359 238.793 28.2287 238.793 28.6861C238.793 29.2628 238.643 29.7749 238.345 30.2223C238.05 30.6697 237.621 31.0227 237.058 31.2812C236.497 31.5398 235.82 31.669 235.024 31.669C234.262 31.669 233.602 31.5481 233.045 31.3061C232.489 31.0642 232.053 30.7211 231.738 30.277C231.423 29.8295 231.249 29.2992 231.216 28.6861H232.757C232.787 29.054 232.906 29.3606 233.115 29.6058C233.327 29.8478 233.597 30.0284 233.925 30.1477C234.257 30.2637 234.62 30.3217 235.014 30.3217C235.448 30.3217 235.835 30.2538 236.173 30.1179C236.514 29.9787 236.782 29.7865 236.978 29.5412C237.174 29.2926 237.271 29.0026 237.271 28.6712C237.271 28.3696 237.185 28.1226 237.013 27.9304C236.844 27.7382 236.613 27.5791 236.322 27.4531C236.033 27.3272 235.707 27.2161 235.342 27.12L234.139 26.7919C233.324 26.5698 232.678 26.2434 232.2 25.8125C231.726 25.3816 231.489 24.8116 231.489 24.1023C231.489 23.5156 231.648 23.0036 231.967 22.5661C232.285 22.1286 232.716 21.7888 233.259 21.5469C233.803 21.3016 234.416 21.179 235.099 21.179C235.788 21.179 236.396 21.3 236.923 21.5419C237.454 21.7839 237.871 22.117 238.176 22.5412C238.481 22.9621 238.64 23.446 238.653 23.9929H237.172ZM243.726 31.6541C242.987 31.6541 242.35 31.4867 241.817 31.152C241.286 30.8139 240.879 30.3482 240.594 29.755C240.309 29.1617 240.166 28.4822 240.166 27.7166C240.166 26.9411 240.312 26.2566 240.604 25.6634C240.895 25.0668 241.306 24.6011 241.836 24.2663C242.367 23.9316 242.992 23.7642 243.711 23.7642C244.291 23.7642 244.808 23.8719 245.262 24.0874C245.716 24.2995 246.082 24.5978 246.361 24.9822C246.642 25.3667 246.81 25.8158 246.863 26.3295H245.416C245.336 25.9716 245.154 25.6634 244.869 25.4048C244.587 25.1463 244.21 25.017 243.736 25.017C243.321 25.017 242.958 25.1264 242.647 25.3452C242.339 25.5606 242.098 25.8688 241.926 26.2699C241.754 26.6676 241.667 27.1383 241.667 27.6818C241.667 28.2386 241.752 28.7192 241.921 29.1236C242.09 29.5279 242.329 29.8411 242.637 30.0632C242.948 30.2853 243.315 30.3963 243.736 30.3963C244.017 30.3963 244.273 30.3449 244.501 30.2422C244.733 30.1361 244.927 29.9853 245.083 29.7898C245.242 29.5942 245.353 29.3589 245.416 29.0838H246.863C246.81 29.5777 246.649 30.0185 246.381 30.4062C246.112 30.794 245.752 31.099 245.302 31.321C244.854 31.5431 244.329 31.6541 243.726 31.6541ZM248.452 31.5V23.8636H249.889V25.0767H249.969C250.108 24.6657 250.353 24.3426 250.705 24.1072C251.059 23.8686 251.46 23.7493 251.908 23.7493C252 23.7493 252.11 23.7526 252.236 23.7592C252.365 23.7659 252.466 23.7741 252.539 23.7841V25.206C252.479 25.1894 252.373 25.1712 252.221 25.1513C252.068 25.1281 251.916 25.1165 251.763 25.1165C251.412 25.1165 251.099 25.1911 250.824 25.3402C250.552 25.486 250.337 25.6899 250.178 25.9517C250.018 26.2102 249.939 26.5052 249.939 26.8366V31.5H248.452ZM256.769 31.6541C256.053 31.6541 255.428 31.4901 254.894 31.1619C254.361 30.8338 253.946 30.3748 253.651 29.7848C253.356 29.1948 253.209 28.5054 253.209 27.7166C253.209 26.9245 253.356 26.2318 253.651 25.6385C253.946 25.0452 254.361 24.5845 254.894 24.2564C255.428 23.9283 256.053 23.7642 256.769 23.7642C257.485 23.7642 258.109 23.9283 258.643 24.2564C259.177 24.5845 259.591 25.0452 259.886 25.6385C260.181 26.2318 260.328 26.9245 260.328 27.7166C260.328 28.5054 260.181 29.1948 259.886 29.7848C259.591 30.3748 259.177 30.8338 258.643 31.1619C258.109 31.4901 257.485 31.6541 256.769 31.6541ZM256.774 30.4062C257.238 30.4062 257.622 30.2836 257.927 30.0384C258.232 29.7931 258.457 29.4666 258.603 29.0589C258.752 28.6513 258.827 28.2022 258.827 27.7116C258.827 27.2244 258.752 26.777 258.603 26.3693C258.457 25.9583 258.232 25.6286 257.927 25.38C257.622 25.1314 257.238 25.0071 256.774 25.0071C256.306 25.0071 255.919 25.1314 255.61 25.38C255.305 25.6286 255.078 25.9583 254.929 26.3693C254.783 26.777 254.71 27.2244 254.71 27.7116C254.71 28.2022 254.783 28.6513 254.929 29.0589C255.078 29.4666 255.305 29.7931 255.61 30.0384C255.919 30.2836 256.306 30.4062 256.774 30.4062ZM263.474 21.3182V31.5H261.988V21.3182H263.474ZM266.96 21.3182V31.5H265.474V21.3182H266.96ZM276.081 31.5H272.785V21.3182H276.185C277.183 21.3182 278.04 21.522 278.756 21.9297C279.471 22.334 280.02 22.9157 280.401 23.6747C280.786 24.4304 280.978 25.3369 280.978 26.3942C280.978 27.4548 280.784 28.3662 280.396 29.1286C280.012 29.8909 279.455 30.4775 278.726 30.8885C277.997 31.2962 277.115 31.5 276.081 31.5ZM274.321 30.1577H275.996C276.772 30.1577 277.416 30.0118 277.93 29.7202C278.444 29.4252 278.828 28.9993 279.084 28.4425C279.339 27.8823 279.466 27.1996 279.466 26.3942C279.466 25.5954 279.339 24.9176 279.084 24.3608C278.832 23.804 278.456 23.3814 277.955 23.093C277.455 22.8047 276.833 22.6605 276.091 22.6605H274.321V30.1577ZM285.985 31.6541C285.27 31.6541 284.645 31.4901 284.111 31.1619C283.578 30.8338 283.163 30.3748 282.868 29.7848C282.573 29.1948 282.426 28.5054 282.426 27.7166C282.426 26.9245 282.573 26.2318 282.868 25.6385C283.163 25.0452 283.578 24.5845 284.111 24.2564C284.645 23.9283 285.27 23.7642 285.985 23.7642C286.701 23.7642 287.326 23.9283 287.86 24.2564C288.393 24.5845 288.808 25.0452 289.103 25.6385C289.398 26.2318 289.545 26.9245 289.545 27.7166C289.545 28.5054 289.398 29.1948 289.103 29.7848C288.808 30.3748 288.393 30.8338 287.86 31.1619C287.326 31.4901 286.701 31.6541 285.985 31.6541ZM285.99 30.4062C286.454 30.4062 286.839 30.2836 287.144 30.0384C287.449 29.7931 287.674 29.4666 287.82 29.0589C287.969 28.6513 288.044 28.2022 288.044 27.7116C288.044 27.2244 287.969 26.777 287.82 26.3693C287.674 25.9583 287.449 25.6286 287.144 25.38C286.839 25.1314 286.454 25.0071 285.99 25.0071C285.523 25.0071 285.135 25.1314 284.827 25.38C284.522 25.6286 284.295 25.9583 284.146 26.3693C284 26.777 283.927 27.2244 283.927 27.7116C283.927 28.2022 284 28.6513 284.146 29.0589C284.295 29.4666 284.522 29.7931 284.827 30.0384C285.135 30.2836 285.523 30.4062 285.99 30.4062ZM292.627 31.5L290.38 23.8636H291.917L293.413 29.4716H293.488L294.989 23.8636H296.525L298.017 29.4467H298.091L299.578 23.8636H301.114L298.872 31.5H297.355L295.804 25.9865H295.69L294.139 31.5H292.627ZM304.011 26.9659V31.5H302.525V23.8636H303.952V25.1065H304.046C304.222 24.7022 304.497 24.3774 304.871 24.1321C305.249 23.8868 305.725 23.7642 306.298 23.7642C306.818 23.7642 307.274 23.8736 307.665 24.0923C308.056 24.3078 308.36 24.6293 308.575 25.0568C308.791 25.4844 308.898 26.013 308.898 26.6428V31.5H307.412V26.8217C307.412 26.2682 307.268 25.8357 306.979 25.5241C306.691 25.2093 306.295 25.0518 305.791 25.0518C305.446 25.0518 305.14 25.1264 304.871 25.2756C304.606 25.4247 304.396 25.6435 304.24 25.9318C304.087 26.2169 304.011 26.5616 304.011 26.9659Z" fill="#F2F2F2"/>
+  <defs>
+  <linearGradient id="paint0_linear_801_21187" x1="59" y1="27" x2="59" y2="29.5" gradientUnits="userSpaceOnUse">
+  <stop stop-color="#12132A"/>
+  <stop offset="1" stop-opacity="0"/>
+  </linearGradient>
+  </defs>
+  </svg>
+  
+  <div class="hidden md:block">
+    <img id="thumb1" class="Group179" style="width:  51px; height: 51px; left: 14vw; top: 28vh; position: absolute;" src="https://i.ibb.co/sPdtpdY/Group-134.png" />
+    <img id="thumb2" class="Group181" style="width: 42px; height: 42px; right: 4.48vw; top: 35.37vh; position: absolute" src="https://i.ibb.co/5BBxyMg/Group-126.png" />
+    <img id="thumb3" class="Group179" style="width: 30px; height: 28px; right: 16vw; top: 50vh; position: absolute" src="https://i.ibb.co/Hpwh3Gr/Group-130.png" />
+    <img id="thumb4" class="Group130" style="width: 29px; height: 30px; left: 26vw; top: 14vh; position: absolute" src="https://i.ibb.co/5Ghy5kv/Group-179-1.png" />
+    <img id="thumb5" class="Group134" style="width: 31px; height: 30px; right: 16vw; top: 18vh; position: absolute" src="https://i.ibb.co/j8Cp3FJ/Group-179.png" />
+    <img id="thumb6" class="Group126" style="width: 42px; height: 42px; left: 20vw; top: 50vh; position: absolute;" src="https://i.ibb.co/5Ghy5kv/Group-179-1.png" />
+  </div>
+<!-- </div> -->
+</div>
+ <!-- <div class="hidden md:block bg-[#5558DE]/70 absolute rounded-full w-80 h-80 blur-3xl overflow-hidden z-0 -left-24 -top-6"></div> -->
       </div>
-      <section class="pb-20 bg-gray-700">
+
+      <section class="pb-20 bg-black">
+
         <div class="container mx-auto px-4">
+
           <div class="flex flex-wrap justify-center">
-            <div
+
+            <img id="pic1" class="Group149 hidden md:block" style="z-index:30; margin-top:-50px; width: 137px; height: 208px; left: 40%; margin-top:40px;" src="https://i.ibb.co/ZMWx5rz/office-workplace-table-2021-08-26-15-48-54-utc-1.jpg" />
+            <img id="pic2" class="Group179 md:ml-11 md:mr-28" style="z-index:10; margin-top:-50px; width: 280px; height: 282px;  top: 0vh;" src="https://i.ibb.co/5BMccYy/male-freelancer-attending-online-videocall-meeting-2022-10-20-01-22-13-utc-1.jpg" /> 
+            <img id="pic3" class="Group339 hidden md:block" style="z-index:10; width: 160px; height: 241px; right: 10vw; margin-top:-40px;" src="https://i.ibb.co/QntXNrh/woman-hands-writing-a-note-on-a-white-marble-desk-2021-08-27-21-12-24-utc.png" />
+<!-- 
+          <div
               class="lg:m-12 m-6 w-full px-4 text-center text-white text-4xl font-semibold"
             >
               Multi-Platform Support
-            </div>
-            <div class="grid justify-items-center lg:flex lg:flex-wrap">
+            </div> -->
+            <!-- <div class="grid justify-items-center lg:flex lg:flex-wrap">
               <div
                 class="lg:pt-0 pt-6 w-full lg:w-3/12 md:w-12/12 px-12 justify-center"
               >
@@ -133,10 +124,11 @@
               >
                 <img src="./images/cisco.svg" alt="" />
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </section>
+
       <section class="py-20 bg-black">
         <div
           class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
@@ -260,8 +252,56 @@
         </div>
       </div>
     </footer>
+
+
+    <script>
+    
+    window.onload = function() {
+      console.log("GSAP Object:", gsap);
+
+      var dur = 0.7;
+      var fromY = 40;
+      var easePar = "CustomEase.create('custom', 'M0,0,C0.173,0,0.242,0.036,0.322,0.13,0.401,0.223,0.449,0.367,0.502,0.506,0.546,0.622,0.43,0.862,0.536,0.954,0.609,1.018,0.869,1,1,1')"
+      var delayed ="0"
+      var delayedmore ="0.2"
+      var startoffset = "0"
+
+// Create a master timeline
+const masterTimeline = gsap.timeline({ repeat: 0, repeatDelay:0, });
+masterTimeline.to(document.getElementById("stageblock"), {autoAlpha:0});
+
+masterTimeline.from(document.getElementById("prehead"), {duration:0.6, autoAlpha:0, y:fromY, ease: easePar,  delay: delayed}, startoffset);
+masterTimeline.from(document.getElementById("headline"), {duration:0.6, autoAlpha:0, y:fromY, ease: easePar,  delay: delayed}, startoffset);
+masterTimeline.from(document.getElementById("subhead"), {duration:0.6, autoAlpha:0, y:fromY, ease: easePar,  delay: delayed}, startoffset);
+masterTimeline.from(document.getElementById("buttons"), {duration:0.6, autoAlpha:0, y:fromY, ease: easePar,  delay: delayed}, startoffset);
+// /////
+masterTimeline.from(document.getElementById("thumb1"), {duration:dur, autoAlpha:0, y:fromY, ease: easePar,  delay: delayedmore}, startoffset);
+masterTimeline.from(document.getElementById("thumb2"), {duration:dur, autoAlpha:0, y:fromY, ease: easePar,  delay: delayedmore}, startoffset);
+masterTimeline.from(document.getElementById("thumb3"), {duration:dur, autoAlpha:0, y:fromY, ease: easePar,  delay: delayedmore}, startoffset);
+masterTimeline.from(document.getElementById("thumb4"), {duration:dur, autoAlpha:0, y:fromY, ease: easePar,  delay: delayedmore}, startoffset);
+masterTimeline.from(document.getElementById("thumb5"), {duration:dur, autoAlpha:0, y:fromY, ease: easePar,  delay: delayedmore}, startoffset);
+masterTimeline.from(document.getElementById("thumb6"), {duration:dur, autoAlpha:0, y:fromY, ease: easePar, delay: delayedmore}, startoffset);
+// ////
+masterTimeline.from(document.getElementById("pic1"), {duration:dur, autoAlpha:0, y:20, ease: easePar, delay: 0.4}, startoffset);
+masterTimeline.from(document.getElementById("pic2"), {duration:dur, autoAlpha:0, y:15, ease: easePar, delay: 0.4}, startoffset);
+masterTimeline.from(document.getElementById("pic3"), {duration:dur, autoAlpha:0, y:20, ease: easePar, delay: 0.4}, startoffset);
+
+
+
+
+    };
+    
+    
+    
+    </script>
+
   </body>
+
+
   <script>
+ 
+
+
     function download() {
       const userAgentString = navigator.userAgent;
       const isChrome = userAgentString.indexOf("Chrome") > -1;
