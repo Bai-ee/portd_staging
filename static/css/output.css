@@ -26,6 +26,7 @@ html {
 body {
   margin: 0;
   line-height: inherit;
+  background: red;
 }
 
 
@@ -1207,4 +1208,127 @@ video {
   .lg\:text-left {
     text-align: left;
   }
+}
+
+
+@property --rotate {
+  syntax: "<angle>";
+  initial-value: -90deg;
+  inherits: false;
+}
+
+:root {
+  --card-height: 440px;
+  --card-width: 260px;
+}
+
+
+body {
+  min-height: 100vh;
+  background: #18192d;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  box-sizing: border-box;
+}
+
+
+.card {
+  background: #191c29;
+  width: 260px;
+  height: 440px;
+  padding: 3px;
+  position: relative;
+  border-radius: 16px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  font-size: 1.5em;
+  color: rgb(88 199 250 / 0%);
+  cursor: pointer;
+  font-family: cursive;
+  
+}
+
+
+.productbg {
+  background: #191c29;
+  width: 260px;
+  height: 440px;
+  padding: 3px;
+  position: relative;
+  border-radius: 16px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  font-size: 1.5em;
+  color: rgb(88 199 250 / 0%);
+  cursor: pointer;
+  font-family: cursive;
+  position:absolute;
+  
+}
+
+.card:hover {
+  color: rgb(88 199 250 / 100%);
+  transition: color 1s;
+}
+.card:hover:before, .card:hover:after {
+  animation: none;
+  opacity: 0;
+}
+
+
+.card::before {
+  /* content: "";
+  width: 104%;
+  height: 102%;
+  border-radius: 8px;
+  background-image: linear-gradient(
+    var(--rotate)
+    , #34387c, #333cc9e0 43%, #323346e0);
+    position: absolute;
+    z-index: -1;
+    top: -1%;
+    left: -2%;
+    animation: spin 2.5s linear infinite; */
+}
+
+.card::after {
+  position: absolute;
+  content: "";
+  top: calc(var(--card-height) / 6);
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  margin: -60px auto;
+  transform: scale(1.25);
+  filter: blur(calc(var(--card-height) / 8));
+  background-image: linear-gradient( var(--rotate) , #64315b, #651D59 43%, #323346e0);
+    opacity: 1;
+  transition: opacity 1s;
+  animation: spin 2.5s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    --rotate: 0deg;
+  }
+  100% {
+    --rotate: 360deg;
+  }
+}
+
+a {
+  color: #212534;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-weight: bold;
+  margin-top: 2rem;
 }
