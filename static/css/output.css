@@ -1225,7 +1225,7 @@ video {
 
 body {
   min-height: 100vh;
-  background: #18192d;
+background: #010211e6;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -1236,7 +1236,7 @@ body {
 
 
 .card {
-  background: #191c29;
+  /* background: #191c29; */
   width: 260px;
   height: 440px;
   padding: 3px;
@@ -1250,26 +1250,6 @@ body {
   color: rgb(88 199 250 / 0%);
   cursor: pointer;
   font-family: cursive;
-  
-}
-
-
-.productbg {
-  background: #191c29;
-  width: 260px;
-  height: 440px;
-  padding: 3px;
-  position: relative;
-  border-radius: 16px;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  display: flex;
-  font-size: 1.5em;
-  color: rgb(88 199 250 / 0%);
-  cursor: pointer;
-  font-family: cursive;
-  position:absolute;
   
 }
 
@@ -1307,7 +1287,7 @@ body {
   z-index: -1;
   height: 100%;
   width: 100%;
-  margin: -60px auto;
+  /* margin: -60px auto; */
   transform: scale(1.25);
   filter: blur(calc(var(--card-height) / 8));
   background-image: linear-gradient( var(--rotate) , #64315b, #651D59 43%, #323346e0);
