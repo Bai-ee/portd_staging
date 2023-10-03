@@ -19,7 +19,7 @@ html {
   -moz-tab-size: 4;
   -o-tab-size: 4;
   tab-size: 4;
-  font-family: "Proxima Nova Rg";
+  font-family: "Proxima Nova Rg" !important;
 }
 
 
@@ -1090,7 +1090,18 @@ video {
   }
 }
 
+@media (min-width: 471px) {
+  #headline {
+    color:red;
+  }
+}
+
 @media (min-width: 768px) {
+
+  #headline {
+    color:orange;
+  }
+
   .md\:block {
     display: block;
   }
@@ -1117,6 +1128,14 @@ video {
 }
 
 @media (min-width: 1024px) {
+
+  #headline {
+    color:yellow;
+  }
+  .lg\:float-right {
+    float: right;
+  }
+
   .lg\:float-right {
     float: right;
   }
@@ -1230,7 +1249,7 @@ background: #010211e6;
   align-items: center;
   flex-direction: column;
   padding-top: 2rem;
-  padding-bottom: 2rem;
+  /* padding-bottom: 2rem; */
   box-sizing: border-box;
 }
 
