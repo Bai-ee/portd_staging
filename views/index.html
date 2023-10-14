@@ -17,20 +17,20 @@
 
 
     <div id="stageblock" style="width:100vw; height:100%; background-color:black; position:absolute; top:0px; z-index:9999999999;"></div>
-    <nav class="top-0 z-50 w-full flex flex-wrap items-center justify-between px-4 py-3" style="
+    <nav class="top-0 z-50 w-full flex flex-wrap items-center justify-between px-10 py-3 my-8 mt-0 " style="
     background: rgba(24, 25, 45, 0.902);
     backdrop-filter: blur(2px);
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
-    max-height: 73px;
-    height:100px;
+    max-height: 100px;
+    height:150px;
     border-bottom: 0.5px solid #ffffff1a;
     width:100vw;
     ">
 
-<svg width="25" height="auto" viewBox="0 0 200 257" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="50" height="auto" viewBox="0 0 200 257" fill="none" xmlns="http://www.w3.org/2000/svg">
   <g clip-path="url(#clip0_923_8012)">
   <path d="M1 251.725C1 252.91 1.39573 253.927 2.18861 254.772C2.95302 255.589 3.89253 256 5.00142 256C6.11032 256 7.05979 255.589 7.85267 254.772C8.61708 253.927 9 252.91 9 251.725V219H1V251.725Z" fill="white"/>
   <path d="M1.04108 219.144V252.055C1.04108 253.12 1.37819 254.007 2.07082 254.768C2.73654 255.501 3.53258 255.856 4.50142 255.856C5.47309 255.856 6.28329 255.498 6.97734 254.76C7.63456 254.013 7.95892 253.123 7.95892 252.055V219.144H1.04108ZM4.50142 257C3.25921 257 2.19405 256.522 1.33428 255.577C0.449009 254.605 0 253.419 0 252.055V218H9V252.055C9 253.415 8.56799 254.598 7.71388 255.57C6.81445 256.524 5.73796 257 4.50142 257Z" fill="white"/>
@@ -75,7 +75,7 @@
   justify-content: flex-end;"
 >
 
-<button
+<button id="navDownloadText"
 class="middle none center rounded-lg py-3 px-6 font-sans text-xs 
 text-white  transition-all focus:opacity-[0.85] focus:shadow-none 
 active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
@@ -86,7 +86,8 @@ border: 1px solid #cccccc13; */
 /* Note: backdrop-filter has minimal browser support */
 /* transform: matrix(-1, 0, 0, 1, 0, 0); */
 /* background:radial-gradient(113.39% 112.78% at 105.44% 105.99%, rgb(57, 6, 45) 0%, rgba(108, 20, 105, 0.51) 9.02%, rgba(19, 19, 18, 0) 100%); */
-max-height:40px;"
+max-height:40px;
+display:none"
 >
 Download Free
 </button>
@@ -272,7 +273,7 @@ width: 95%;
   box-sizing: border-box;
 margin-top:0px;
 position: relative;
-border-radius:14px;
+border-radius:8px;
 width: 80%;
 height: 60px;
 background:radial-gradient(113.39% 112.78% at 105.44% 105.99%, rgb(57, 6, 45) 0%, rgba(108, 20, 105, 0.51) 9.02%, rgba(19, 19, 18, 0) 100%);
@@ -294,7 +295,9 @@ color: #d9d9d9;
     align-items: center;
     font-size:16px;
     max-width:80vw;
-    font-weight:800
+    font-weight:800;
+    max-width:275px;
+    background-color:#c54da9 !important
   "  >
       DOWNLOAD FREE
 </div>
@@ -1339,7 +1342,7 @@ z:0, translateZ:0, x:"0",rotationY:-25, rotationX:15, scale:0.85});
         // });
 
       var dur = 0.7;
-      var fromY = 40;
+      var fromY = 100;
       var easePar = "CustomEase.create('custom', 'M0,0,C0.173,0,0.242,0.036,0.322,0.13,0.401,0.223,0.449,0.367,0.502,0.506,0.546,0.622,0.43,0.862,0.536,0.954,0.609,1.018,0.869,1,1,1')"
       var delayed ="0"
       var delayedmore ="0.2"
@@ -1352,21 +1355,21 @@ masterTimeline.to(document.getElementById("stageblock"), {autoAlpha:0});
 // masterTimeline.from(document.getElementById("logo"), {duration:0.6, autoAlpha:0, y:50, ease: easePar,  delay: delayed}, startoffset);
 // masterTimeline.from(document.getElementById("logo"), {duration:0.6, autoAlpha:0, y:50, ease: easePar,  delay: delayed}, startoffset);
 // masterTimeline.from(document.getElementById("logo"), {duration:0.6, autoAlpha:0, y:50, ease: easePar,  delay: delayed}, startoffset);
-masterTimeline.from(document.getElementById("prehead"), {duration:0.6, autoAlpha:0, y:10, ease: easePar,  delay: delayed}, startoffset);
-masterTimeline.from(document.getElementById("headline"), {duration:0.6, autoAlpha:0, y:20, ease: easePar,  delay: delayed}, startoffset);
-masterTimeline.from(document.getElementById("subhead"), {duration:0.6, autoAlpha:0, y:30, ease: easePar,  delay: delayed}, startoffset);
-masterTimeline.from(document.getElementById("buttons"), {duration:0.6, autoAlpha:0, y:50, ease: easePar,  delay: delayed}, startoffset);
-masterTimeline.from(document.getElementById("logo"), {duration:0.6, autoAlpha:1, y:0, ease: easePar,  delay: delayed}, startoffset);
+masterTimeline.from(document.getElementById("prehead"), {duration:dur, autoAlpha:0, y:100, ease: easePar,  delay: delayed}, startoffset);
+masterTimeline.from(document.getElementById("headline"), {duration:dur, autoAlpha:0, y:150, ease: easePar,  delay: delayed}, startoffset);
+masterTimeline.from(document.getElementById("subhead"), {duration:dur, autoAlpha:0, y:200, ease: easePar,  delay: delayed}, startoffset);
+masterTimeline.from(document.getElementById("buttons"), {duration:dur, autoAlpha:0, y:250, ease: easePar,  delay: delayed}, startoffset);
+masterTimeline.from(document.getElementById("logo"), {duration:dur, autoAlpha:1, y:0, ease: easePar,  delay: delayed}, startoffset);
 
 // /////
-masterTimeline.from(document.getElementById("thumb1"), {duration:dur, autoAlpha:0, y:fromY, ease: easePar,  delay: delayedmore}, startoffset);
-masterTimeline.from(document.getElementById("thumb2"), {duration:dur, autoAlpha:0, y:fromY, ease: easePar,  delay: delayedmore}, startoffset);
-masterTimeline.from(document.getElementById("thumb3"), {duration:dur, autoAlpha:0, y:fromY, ease: easePar,  delay: delayedmore}, startoffset);
-masterTimeline.from(document.getElementById("thumb4"), {duration:dur, autoAlpha:0, y:fromY, ease: easePar,  delay: delayedmore}, startoffset);
-masterTimeline.from(document.getElementById("thumb5"), {duration:dur, autoAlpha:0, y:fromY, ease: easePar,  delay: delayedmore}, startoffset);
-masterTimeline.from(document.getElementById("thumb6"), {duration:dur, autoAlpha:0, y:fromY, ease: easePar, delay: delayedmore}, startoffset);
+// masterTimeline.from(document.getElementById("thumb1"), {duration:dur, autoAlpha:0, y:fromY, ease: easePar,  delay: delayedmore}, startoffset);
+// masterTimeline.from(document.getElementById("thumb2"), {duration:dur, autoAlpha:0, y:fromY, ease: easePar,  delay: delayedmore}, startoffset);
+// masterTimeline.from(document.getElementById("thumb3"), {duration:dur, autoAlpha:0, y:fromY, ease: easePar,  delay: delayedmore}, startoffset);
+// masterTimeline.from(document.getElementById("thumb4"), {duration:dur, autoAlpha:0, y:fromY, ease: easePar,  delay: delayedmore}, startoffset);
+// masterTimeline.from(document.getElementById("thumb5"), {duration:dur, autoAlpha:0, y:fromY, ease: easePar,  delay: delayedmore}, startoffset);
+// masterTimeline.from(document.getElementById("thumb6"), {duration:dur, autoAlpha:0, y:fromY, ease: easePar, delay: delayedmore}, startoffset);
 // ////
-masterTimeline.from(document.getElementById("pic1"), {duration:dur, autoAlpha:0, y:20, ease: easePar, delay: 0.4}, startoffset);
+// masterTimeline.from(document.getElementById("pic1"), {duration:dur, autoAlpha:0, y:20, ease: easePar, delay: 0.4}, startoffset);
 // masterTimeline.from(document.getElementById("pic2"), {duration:dur, autoAlpha:0, y:15, ease: easePar, delay: 0.4}, startoffset);
 masterTimeline.from(document.getElementById("product"), {duration:1.25, x: "100vw", ease: easePar, delay: 0, rotationY:0, autoAlpha:1}, 0);
 masterTimeline.from(document.getElementById("pic2"), {duration:1.25, x: "-100vw", ease: easePar, delay: 0, rotationY:0, autoAlpha:0.02}, 0);

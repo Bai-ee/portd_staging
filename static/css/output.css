@@ -1091,8 +1091,16 @@ video {
 }
 
 @media (min-width: 471px) {
+
+  #navDownloadText {
+    /* visibility:visible !important; */
+    display:block !important;
+  }
   #headline {
     color:red;
+    font-size:4rem;
+    line-height: 100%;
+    padding-top:50px;
   }
 }
 
