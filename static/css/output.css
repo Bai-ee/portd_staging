@@ -1084,6 +1084,26 @@ video {
   outline-offset: 2px;
 }
 
+#subhead {
+  /* color:#E5E7EB; */
+  font-size:1rem; 
+}
+
+#headline {
+  /* color:rwhiteed; */
+  font-size:3rem;
+  line-height: 100%;
+  padding-top:50px;
+}
+
+#product {
+  /* margin-top: 150px; */
+}
+
+.card {
+  margin-top:0px;
+}
+
 @media (prefers-color-scheme: dark) {
   .dark\:hidden {
     display: none;
@@ -1097,17 +1117,24 @@ video {
     display:block !important;
   }
   #headline {
-    color:red;
-    font-size:4rem;
+    /* color:rwhiteed; */
+    font-size:3rem;
     line-height: 100%;
     padding-top:50px;
   }
+
+  #subhead {
+    /* color:#E5E7EB; */
+    font-size:1.5rem; 
+  }
+  
 }
 
 @media (min-width: 768px) {
 
   #headline {
-    color:orange;
+    /* color:orange; */
+    font-size:4rem;
   }
 
   .md\:block {
@@ -1138,8 +1165,15 @@ video {
 @media (min-width: 1024px) {
 
   #headline {
-    color:yellow;
+    color:#E5E7EB;
+    font-size: 5.5rem;
   }
+
+  #subhead {
+    /* color:#E5E7EB; */
+    font-size:2.5rem; 
+  }
+
   .lg\:float-right {
     float: right;
   }
@@ -1253,9 +1287,9 @@ video {
 body {
   min-height: 100vh;
 background: #010211e6;
-  display: flex;
+  /* display: flex;
   align-items: center;
-  flex-direction: column;
+  flex-direction: column; */
   padding-top: 2rem;
   /* padding-bottom: 2rem; */
   box-sizing: border-box;
